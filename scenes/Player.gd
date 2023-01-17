@@ -37,3 +37,16 @@ func get_movement_vector():
 	moveVector.x = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
 	moveVector.y = -1 if Input.is_action_just_pressed("jump") else 0
 	return moveVector;
+	
+func update_animation():
+	var moveVector = get_movement_vector()
+	
+	if (!is_on_floor()):
+		$AnimatedSprite.play("jump")
+	elif (moveVector.x != 0):
+		$AnimatedSprite.play("run")
+	else:
+		$AnimatedSprite.play("idle")
+	
+	if (moveVector != 0):
+		$AnimatedSprite.flip_h = true if moveVector.x > 0 else false
