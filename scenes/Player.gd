@@ -21,7 +21,7 @@ func _process(delta) -> void:
 	velocity.x = clamp(velocity.x, - maxHorizontalSpeed, maxHorizontalSpeed)
 	
 	# only jump when on floor, no flying by pressing again
-	if (moveVector.y < 0 && is_on_floor()):
+	if (moveVector.y < 0 && (is_on_floor() || !$CoyoteTimer.is_stopped())):
 		velocity.y = moveVector.y * maxJump
 	
 	# jump longer presssing makes you jump higher 
@@ -30,7 +30,11 @@ func _process(delta) -> void:
 	else:
 		velocity.y += gravity * delta
 	
+	var wasOnFloor = is_on_floor()
 	velocity = move_and_slide(velocity, Vector2.UP)
+	
+	if (wasOnFloor && !is_on_floor()):
+		$CoyoteTimer.start()
 	
 	update_animation()
 	
