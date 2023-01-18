@@ -32,6 +32,8 @@ func _process(delta) -> void:
 	
 	velocity = move_and_slide(velocity, Vector2.UP)
 	
+	update_animation()
+	
 func get_movement_vector():
 	var moveVector = Vector2.ZERO
 	moveVector.x = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
@@ -48,5 +50,5 @@ func update_animation():
 	else:
 		$AnimatedSprite.play("idle")
 	
-	if (moveVector != 0):
+	if (moveVector.x != 0):
 		$AnimatedSprite.flip_h = true if moveVector.x > 0 else false
