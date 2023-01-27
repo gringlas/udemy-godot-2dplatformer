@@ -2,19 +2,43 @@ extends KinematicBody2D
 
 signal died
 
+enum State { NORMAL, DASHING }
+export (int, LAYERS_2D_PHYSICS) var dashHazardMask
+
 var gravity = 1000
 var velocity = Vector2.ZERO
 var maxHorizontalSpeed = 140
+var maxDashSpeed = 500
+var minDashSpeed = 200
 var horizontalAcceleration = 1500
 var maxJump = 360
 var jumpTerminationMultiplier = 4
 var hasDoubleJump = false
+var currentState = State.NORMAL
+var isStateNew = true
+var defaultHazardMask = 0
 
 func _ready() -> void:
 	$HazardArea.connect("area_entered", self, "on_hazard_area_entered")
-
+	defaultHazardMask = $HazardArea.collision_mask
 
 func _process(delta) -> void:
+	match currentState:
+		State.NORMAL:
+			process_normal(delta)
+		State.DASHING:
+			process_dashing(delta)
+	isStateNew = false
+	
+func change_state(newState) -> void:
+	currentState = newState
+	isStateNew = true
+	
+func process_normal(delta) -> void:
+	if (isStateNew):
+		$DashArea/CollisionShape2D.disabled = true
+		$HazardArea.collision_mask = defaultHazardMask
+		
 	var moveVector = get_movement_vector()
 	velocity.x += moveVector.x * horizontalAcceleration * delta
 	if (moveVector.x == 0):
@@ -46,7 +70,29 @@ func _process(delta) -> void:
 	if (is_on_floor()):
 		hasDoubleJump = true
 	
+	if (Input.is_action_just_pressed("dash")):
+		call_deferred("change_state", State.DASHING)
+	
 	update_animation()
+
+func process_dashing(delta) -> void:
+	if (isStateNew):
+		$DashArea/CollisionShape2D.disabled = false
+		$HazardArea.collision_mask = dashHazardMask
+		$AnimatedSprite.play("jump")
+		var moveVector = get_movement_vector()
+		var velocityMod = 1
+		if (moveVector.x != 0):
+			velocityMod = sign(moveVector.x)
+		else:
+			velocityMod = 1 if $AnimatedSprite.flip_h else -1
+		velocity = Vector2(maxDashSpeed * velocityMod, 0)
+	
+	velocity = move_and_slide(velocity, Vector2.UP)
+	velocity.x = lerp(0, velocity.x, pow(2, -8 * delta))
+	if (abs(velocity.x) < minDashSpeed):
+		call_deferred("change_state", State.NORMAL)
+	
 	
 func get_movement_vector():
 	var moveVector = Vector2.ZERO
