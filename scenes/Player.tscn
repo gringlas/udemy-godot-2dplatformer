@@ -31,7 +31,7 @@ animations = [ {
 extents = Vector2( 8, 12.5 )
 
 [sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 6, 8 )
+extents = Vector2( 5, 14 )
 
 [sub_resource type="CapsuleShape2D" id=5]
 radius = 15.0
@@ -46,7 +46,7 @@ dashHazardMask = 262144
 wait_time = 0.15
 one_shot = true
 
-[node name="PickupArea" type="Area2D" parent="."]
+[node name="PickupArea" type="Area2D" parent="." groups=["Player"]]
 collision_layer = 32768
 collision_mask = 32768
 
@@ -69,6 +69,7 @@ collision_layer = 0
 collision_mask = 327680
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HazardArea"]
+position = Vector2( 0, -6 )
 shape = SubResource( 4 )
 
 [node name="DashArea" type="Area2D" parent="."]
