@@ -11,8 +11,12 @@ config_version=4
 [application]
 
 config/name="udemy-2d-platformer"
-run/main_scene="res://scenes/Levels/Level_001.tscn"
+run/main_scene="res://scenes/main.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+LevelManager="*res://scenes/LevelManager.tscn"
 
 [display]
 

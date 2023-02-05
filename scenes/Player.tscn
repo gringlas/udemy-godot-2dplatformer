@@ -47,8 +47,8 @@ wait_time = 0.15
 one_shot = true
 
 [node name="PickupArea" type="Area2D" parent="." groups=["Player"]]
-collision_layer = 32768
-collision_mask = 32768
+collision_layer = 524288
+collision_mask = 524288
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PickupArea"]
 position = Vector2( 0, -13 )
