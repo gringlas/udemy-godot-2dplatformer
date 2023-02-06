@@ -20,5 +20,7 @@ func _process(delta):
 func on_goal_entered(_area2d):
 	direction.x *= -1
 	
+# enemy dies
 func on_hitbox_entered(_area2d):
+	$"/root/Helpers".apply_camera_shake(1)
 	queue_free()

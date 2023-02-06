@@ -53,7 +53,9 @@ func process_normal(delta) -> void:
 		velocity.y = moveVector.y * maxJump
 		
 		if (!is_on_floor() && $CoyoteTimer.is_stopped()):
+			$"/root/Helpers".apply_camera_shake(1)
 			hasDoubleJump = false
+			
 		$CoyoteTimer.stop()
 	
 	# jump longer presssing makes you jump higher 
@@ -80,6 +82,7 @@ func process_normal(delta) -> void:
 
 func process_dashing(delta) -> void:
 	if (isStateNew):
+		 
 		$DashArea/CollisionShape2D.disabled = false
 		$HazardArea.collision_mask = dashHazardMask
 		$AnimatedSprite.play("jump")
@@ -117,4 +120,5 @@ func update_animation():
 		$AnimatedSprite.flip_h = true if moveVector.x > 0 else false
 
 func on_hazard_area_entered(area2d):
+	$"/root/Helpers".apply_camera_shake(1)
 	emit_signal("died")

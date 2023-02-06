@@ -34,6 +34,7 @@ func create_player():
 	var playerInstance = playerScene.instance()
 	add_child_below_node(currentPlayerNode, playerInstance)
 	playerInstance.global_position = spawnPosition
+	playerInstance.add_to_group("player")
 	register_player(playerInstance)
 	
 func on_player_died():
@@ -41,6 +42,6 @@ func on_player_died():
 	create_player()
 
 func on_player_won():
+	currentPlayerNode.queue_free()
 	var levelComplete = levelCompleteScene.instance()
 	add_child(levelComplete)
-	currentPlayerNode.queue_free()

@@ -25,15 +25,14 @@ theme = ExtResource( 2 )
 margin_left = 9.0
 margin_top = 9.0
 margin_right = 46.0
-margin_bottom = 22.0
+margin_bottom = 21.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
 custom_constants/separation = 2
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer"]
-margin_top = 1.0
 margin_right = 12.0
-margin_bottom = 13.0
+margin_bottom = 12.0
 rect_min_size = Vector2( 12, 12 )
 size_flags_vertical = 8
 texture = SubResource( 1 )
@@ -41,8 +40,9 @@ expand = true
 
 [node name="CoinLabel" type="Label" parent="MarginContainer/HBoxContainer"]
 margin_left = 14.0
+margin_top = 1.0
 margin_right = 37.0
-margin_bottom = 13.0
+margin_bottom = 10.0
 size_flags_horizontal = 0
 theme = ExtResource( 2 )
 text = "Coins"
