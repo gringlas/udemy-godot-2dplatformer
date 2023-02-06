@@ -75,6 +75,7 @@ func process_normal(delta) -> void:
 		hasDash = true
 	
 	if (hasDash && Input.is_action_just_pressed("dash")):
+		$"/root/Helpers".apply_camera_shake(1)
 		call_deferred("change_state", State.DASHING)
 		hasDash = false
 	
