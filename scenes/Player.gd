@@ -20,6 +20,7 @@ var hasDash = false
 var currentState = State.NORMAL
 var isStateNew = true
 var defaultHazardMask = 0
+var isDying = false
 
 func _ready() -> void:
 	$HazardArea.connect("area_entered", self, "on_hazard_area_entered")
@@ -123,10 +124,14 @@ func update_animation():
 		$AnimatedSprite.flip_h = true if moveVector.x > 0 else false
 
 func kill():
+	if (isDying):
+		return
+		
+	isDying = true
 	var playerDeathInstance = playerDeathScene.instance()
+	playerDeathInstance.velocity = velocity
 	get_parent().add_child_below_node(self, playerDeathInstance)
 	playerDeathInstance.global_position = global_position
-	playerDeathInstance.velocity = velocity
 	emit_signal("died")	
 
 func on_hazard_area_entered(area2d):

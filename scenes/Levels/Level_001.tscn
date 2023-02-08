@@ -232,6 +232,3 @@ rotation = -3.14159
 
 [node name="Flag" parent="." index="7"]
 position = Vector2( 184, 112 )
-
-[node name="Player" parent="." index="8"]
-position = Vector2( 0, 1 )

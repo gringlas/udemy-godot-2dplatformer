@@ -63,39 +63,42 @@ position = Vector2( 736, -296 )
 position = Vector2( 328, -280 )
 
 [node name="Spikes" parent="Hazards" index="0" instance=ExtResource( 5 )]
-position = Vector2( 135, 128 )
+position = Vector2( 136, 128 )
 
-[node name="Spikes2" parent="Hazards" index="1" instance=ExtResource( 5 )]
+[node name="Spikes13" parent="Hazards" index="1" instance=ExtResource( 5 )]
+position = Vector2( 40, 1 )
+
+[node name="Spikes2" parent="Hazards" index="2" instance=ExtResource( 5 )]
 position = Vector2( 153, 128 )
 
-[node name="Spikes3" parent="Hazards" index="2" instance=ExtResource( 5 )]
+[node name="Spikes3" parent="Hazards" index="3" instance=ExtResource( 5 )]
 position = Vector2( 171, 128 )
 
-[node name="Spikes4" parent="Hazards" index="3" instance=ExtResource( 5 )]
+[node name="Spikes4" parent="Hazards" index="4" instance=ExtResource( 5 )]
 position = Vector2( 476, 216 )
 
-[node name="Spikes5" parent="Hazards" index="4" instance=ExtResource( 5 )]
+[node name="Spikes5" parent="Hazards" index="5" instance=ExtResource( 5 )]
 position = Vector2( 494, 216 )
 
-[node name="Spikes6" parent="Hazards" index="5" instance=ExtResource( 5 )]
+[node name="Spikes6" parent="Hazards" index="6" instance=ExtResource( 5 )]
 position = Vector2( 512, 216 )
 
-[node name="Spikes7" parent="Hazards" index="6" instance=ExtResource( 5 )]
+[node name="Spikes7" parent="Hazards" index="7" instance=ExtResource( 5 )]
 position = Vector2( 529, 216 )
 
-[node name="Spikes8" parent="Hazards" index="7" instance=ExtResource( 5 )]
+[node name="Spikes8" parent="Hazards" index="8" instance=ExtResource( 5 )]
 position = Vector2( 547, 216 )
 
-[node name="Spikes9" parent="Hazards" index="8" instance=ExtResource( 5 )]
+[node name="Spikes9" parent="Hazards" index="9" instance=ExtResource( 5 )]
 position = Vector2( 603, 216 )
 
-[node name="Spikes10" parent="Hazards" index="9" instance=ExtResource( 5 )]
+[node name="Spikes10" parent="Hazards" index="10" instance=ExtResource( 5 )]
 position = Vector2( 620, 216 )
 
-[node name="Spikes11" parent="Hazards" index="10" instance=ExtResource( 5 )]
+[node name="Spikes11" parent="Hazards" index="11" instance=ExtResource( 5 )]
 position = Vector2( 636, 216 )
 
-[node name="Spikes12" parent="Hazards" index="11" instance=ExtResource( 5 )]
+[node name="Spikes12" parent="Hazards" index="12" instance=ExtResource( 5 )]
 position = Vector2( 653, 216 )
 
 [node name="Flag" parent="." index="7"]
