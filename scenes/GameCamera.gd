@@ -34,10 +34,18 @@ func _process(delta: float) -> void:
 		currentShakePercentage = clamp(currentShakePercentage - shakeDecay * delta, 0, 1)
 			
 func aquire_target_position():
-	var players = get_tree().get_nodes_in_group("player")
-	if (players.size() > 0):
-		var player = players[0]
-		global_position = player.global_position
+	var aquired = is_get_target_position_from_node_name("player")
+	if (!aquired):
+		is_get_target_position_from_node_name("player_death")
+
+func is_get_target_position_from_node_name(groupName):
+	var nodes = get_tree().get_nodes_in_group(groupName)
+	if (nodes.size() > 0):
+		var node = nodes[0]
+		target_position = node.global_position
+		return true
+	return false
+	
 
 func apply_shake(percentage):
 	currentShakePercentage = clamp(currentShakePercentage + percentage, 0, 1)
