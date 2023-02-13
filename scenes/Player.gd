@@ -40,6 +40,7 @@ func change_state(newState) -> void:
 	
 func process_normal(delta) -> void:
 	if (isStateNew):
+		$DashParticles.emitting = false
 		$DashArea/CollisionShape2D.disabled = true
 		$HazardArea.collision_mask = defaultHazardMask
 		
@@ -86,7 +87,7 @@ func process_normal(delta) -> void:
 
 func process_dashing(delta) -> void:
 	if (isStateNew):
-		 
+		$DashParticles.emitting = true;
 		$DashArea/CollisionShape2D.disabled = false
 		$HazardArea.collision_mask = dashHazardMask
 		$AnimatedSprite.play("jump")
