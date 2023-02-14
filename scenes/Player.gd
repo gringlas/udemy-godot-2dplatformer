@@ -1,6 +1,7 @@
 extends KinematicBody2D
 
 var playerDeathScene = preload("res://scenes/PlayerDeath.tscn")
+var footstepParticles = preload("res://scenes/FootstepParticles.tscn")
 
 signal died
 
@@ -24,6 +25,7 @@ var isDying = false
 
 func _ready() -> void:
 	$HazardArea.connect("area_entered", self, "on_hazard_area_entered")
+	$AnimatedSprite.connect("frame_changed", self, "on_animated_sprite_frame_changed")
 	defaultHazardMask = $HazardArea.collision_mask
 
 func _process(delta) -> void:
@@ -73,6 +75,8 @@ func process_normal(delta) -> void:
 	
 	if (wasOnFloor && !is_on_floor()):
 		$CoyoteTimer.start()
+	if !wasOnFloor and is_on_floor() and !isStateNew:
+		spawn_footsteps(1.5)
 	
 	if (is_on_floor()):
 		hasDoubleJump = true
@@ -135,7 +139,19 @@ func kill():
 	playerDeathInstance.global_position = global_position
 	emit_signal("died")	
 
+
+func spawn_footsteps(scale = 1):
+	var footstep = footstepParticles.instance()
+	get_parent().add_child(footstep)
+	footstep.scale = Vector2.ONE * scale
+	footstep.global_position = global_position
+
+
 func on_hazard_area_entered(area2d):
 	$"/root/Helpers".apply_camera_shake(1)
 	call_deferred("kill")
 	
+	
+func on_animated_sprite_frame_changed():
+	if $AnimatedSprite.animation == "run" and $AnimatedSprite.frame == 0:
+		spawn_footsteps()
