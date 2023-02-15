@@ -1,0 +1,90 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://assets/effects/screen-wipe.png" type="Texture" id=1]
+[ext_resource path="res://scenes/UI/ScreenTransition.gd" type="Script" id=2]
+[ext_resource path="res://resources/tileset.tres" type="TileSet" id=3]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
+
+uniform sampler2D wipeImage;
+uniform float percentage: hint_range(0,1);
+
+void fragment() {
+	float textVal = texture(wipeImage, UV).r;
+	if (textVal < percentage) {
+		COLOR.a = 0.0;
+	}
+		
+}
+"
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = SubResource( 1 )
+shader_param/percentage = 1.0
+shader_param/wipeImage = ExtResource( 1 )
+
+[sub_resource type="Animation" id=4]
+resource_name = "default"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:material:shader_param/percentage")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 1.0, 0.0, 1.0 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("..")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.6 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "queue_free"
+} ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("..")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.3 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "emit_screen_covered"
+} ]
+}
+
+[node name="ScreenTransition" type="CanvasLayer"]
+layer = 10
+script = ExtResource( 2 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource( 2 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../ColorRect")
+autoplay = "default"
+anims/default = SubResource( 4 )
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 3 )
+cell_size = Vector2( 18, 18 )
+format = 1
+tile_data = PoolIntArray( 0, 0, 0, 1, 0, 2, 65536, 0, 65536, 65537, 0, 65538, 131072, 0, 65536, 131073, 0, 65538, 196608, 0, 65536, 196609, 0, 65538, 262144, 0, 65536, 262145, 0, 65538, 327680, 0, 65536, 327681, 0, 65538, 393216, 0, 131072, 393217, 0, 131074 )
