@@ -29,6 +29,9 @@ func _ready() -> void:
 	defaultHazardMask = $HazardArea.collision_mask
 
 func _process(delta) -> void:
+	if velocity.y > 3000.0:
+		kill()
+	
 	match currentState:
 		State.NORMAL:
 			process_normal(delta)
