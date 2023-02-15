@@ -1,5 +1,122 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scenes/BaseLevel.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/Coin.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/Spikes.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/EnemyGoal.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/EnemySpawner.tscn" type="PackedScene" id=5]
 
 [node name="BaseLevel" instance=ExtResource( 1 )]
+
+[node name="TileMap" parent="." index="3"]
+tile_data = PoolIntArray( -983042, 4, 0, -983041, 4, 1, -1048576, 4, 1, -1048575, 4, 1, -1048574, 4, 1, -1048573, 4, 1, -1048572, 4, 1, -1048571, 4, 1, -1048570, 4, 1, -1048569, 4, 1, -1048568, 4, 1, -1048567, 4, 1, -1048566, 4, 1, -1048565, 4, 2, -720911, 4, 0, -720910, 4, 1, -720909, 4, 1, -720908, 4, 1, -720907, 4, 2, -655345, 5, 0, -524307, 5, 0, -262164, 4, 0, -262163, 4, 1, -262162, 4, 1, -262161, 4, 1, -262160, 4, 2, -131056, 8, 0, -131055, 8, 1, -131054, 8, 1, -131053, 8, 2, -65520, 8, 65536, -65519, 8, 65537, -65518, 8, 65537, -65517, 8, 65538, 16, 8, 131072, 17, 8, 131073, 18, 8, 131073, 19, 8, 131074, 262148, 8, 0, 262149, 8, 1, 262150, 8, 2, 393199, 5, 0, 327684, 8, 131072, 327685, 8, 131073, 327686, 8, 131074, 524289, 5, 0, 655341, 5, 0, 786419, 5, 0, 851963, 8, 0, 851964, 8, 1, 851965, 8, 1, 851966, 8, 2, 917499, 8, 65536, 917500, 8, 65537, 917501, 8, 65537, 917502, 8, 65538, 983035, 8, 131072, 983036, 8, 131073, 983037, 8, 131073, 983038, 8, 131074, 1048559, 5, 0, 1376242, 5, 0, 1703925, 5, 0, 1638408, 8, 0, 1638409, 8, 1, 1638410, 8, 1, 1638411, 8, 1, 1638412, 8, 1, 1638413, 8, 1, 1638414, 8, 1, 1638415, 8, 1, 1638416, 8, 2, 1703944, 8, 131072, 1703945, 8, 131073, 1703946, 8, 131073, 1703947, 8, 131073, 1703948, 8, 131073, 1703949, 8, 131073, 1703950, 8, 131073, 1703951, 8, 131073, 1703952, 8, 131074, 1966072, 8, 0, 1966073, 8, 1, 1966074, 8, 1, 1966075, 8, 2, 2031608, 8, 65536, 2031609, 8, 65537, 2031610, 8, 65537, 2031611, 8, 65538, 2097144, 8, 131072, 2097145, 8, 131073, 2097146, 8, 131073, 2097147, 8, 131074, 2228224, 8, 0, 2228225, 8, 1, 2228226, 8, 1, 2228227, 8, 1, 2228228, 8, 1, 2228229, 8, 1, 2228230, 8, 1, 2228231, 8, 1, 2228232, 8, 2, 2293760, 8, 131072, 2293761, 8, 131073, 2293762, 8, 131073, 2293763, 8, 131073, 2293764, 8, 131073, 2293765, 8, 131073, 2293766, 8, 131073, 2293767, 8, 131073, 2293768, 8, 131074, 2359363, 0, 0 )
+
+[node name="DecorativeTileMap" parent="." index="4"]
+tile_data = PoolIntArray( -196591, 6, 0, 196612, 9, 0, 786427, 6, 0, 786430, 6, 0, 1572877, 9, 0, 1572878, 9, 0, 1572879, 9, 0, 1572880, 9, 0, 1900537, 9, 0, 1900538, 9, 0, 2162688, 9, 0, 2162689, 9, 0, 2162690, 9, 0, 2162691, 9, 0, 2359363, 0, 0 )
+
+[node name="EnemyGoal" parent="Enemies" index="0" instance=ExtResource( 4 )]
+position = Vector2( 144, 456 )
+
+[node name="EnemyGoal3" parent="Enemies" index="1" instance=ExtResource( 4 )]
+position = Vector2( -368, -88 )
+
+[node name="EnemyGoal4" parent="Enemies" index="2" instance=ExtResource( 4 )]
+position = Vector2( -264, -88 )
+
+[node name="EnemyGoal5" parent="Enemies" index="3" instance=ExtResource( 4 )]
+position = Vector2( -40, -288 )
+
+[node name="EnemyGoal6" parent="Enemies" index="4" instance=ExtResource( 4 )]
+position = Vector2( 224, -288 )
+
+[node name="EnemyGoal2" parent="Enemies" index="5" instance=ExtResource( 4 )]
+position = Vector2( 304, 456 )
+
+[node name="EnemySpawner" parent="Enemies" index="6" instance=ExtResource( 5 )]
+position = Vector2( 216, 448 )
+
+[node name="EnemySpawner2" parent="Enemies" index="7" instance=ExtResource( 5 )]
+position = Vector2( -344, -88 )
+
+[node name="EnemySpawner3" parent="Enemies" index="8" instance=ExtResource( 5 )]
+position = Vector2( 0, -288 )
+
+[node name="Coin" parent="Collectibles" index="0" instance=ExtResource( 2 )]
+position = Vector2( 96, 64 )
+
+[node name="Coin8" parent="Collectibles" index="1" instance=ExtResource( 2 )]
+position = Vector2( -288, -104 )
+
+[node name="Coin9" parent="Collectibles" index="2" instance=ExtResource( 2 )]
+position = Vector2( -296, 80 )
+
+[node name="Coin10" parent="Collectibles" index="3" instance=ExtResource( 2 )]
+position = Vector2( -224, 184 )
+
+[node name="Coin11" parent="Collectibles" index="4" instance=ExtResource( 2 )]
+position = Vector2( -297, 264 )
+
+[node name="Coin12" parent="Collectibles" index="5" instance=ExtResource( 2 )]
+position = Vector2( -192, 440 )
+
+[node name="Coin13" parent="Collectibles" index="6" instance=ExtResource( 2 )]
+position = Vector2( -192, 440 )
+
+[node name="Coin2" parent="Collectibles" index="7" instance=ExtResource( 2 )]
+position = Vector2( 120, 64 )
+
+[node name="Coin3" parent="Collectibles" index="8" instance=ExtResource( 2 )]
+position = Vector2( 352, -40 )
+
+[node name="Coin4" parent="Collectibles" index="9" instance=ExtResource( 2 )]
+position = Vector2( 184, 144 )
+
+[node name="Coin5" parent="Collectibles" index="10" instance=ExtResource( 2 )]
+position = Vector2( 184, 184 )
+
+[node name="Coin6" parent="Collectibles" index="11" instance=ExtResource( 2 )]
+position = Vector2( 184, 256 )
+
+[node name="Coin7" parent="Collectibles" index="12" instance=ExtResource( 2 )]
+position = Vector2( 152, 608 )
+
+[node name="Spikes" parent="Hazards" index="0" instance=ExtResource( 3 )]
+position = Vector2( 80, 614 )
+
+[node name="Spikes6" parent="Hazards" index="1" instance=ExtResource( 3 )]
+position = Vector2( -248, -216 )
+
+[node name="Spikes7" parent="Hazards" index="2" instance=ExtResource( 3 )]
+position = Vector2( -201, -216 )
+
+[node name="Spikes2" parent="Hazards" index="3" instance=ExtResource( 3 )]
+position = Vector2( 96, 614 )
+
+[node name="Spikes3" parent="Hazards" index="4" instance=ExtResource( 3 )]
+position = Vector2( 112, 614 )
+
+[node name="Spikes4" parent="Hazards" index="5" instance=ExtResource( 3 )]
+position = Vector2( -73, 531 )
+rotation = 1.57079
+
+[node name="Spikes8" parent="Hazards" index="6" instance=ExtResource( 3 )]
+position = Vector2( -180, 459 )
+rotation = 1.57079
+
+[node name="Spikes9" parent="Hazards" index="7" instance=ExtResource( 3 )]
+position = Vector2( -233, 369 )
+rotation = 1.57079
+
+[node name="Spikes10" parent="Hazards" index="8" instance=ExtResource( 3 )]
+position = Vector2( -287, 280 )
+rotation = 1.57079
+
+[node name="Spikes5" parent="Hazards" index="9" instance=ExtResource( 3 )]
+position = Vector2( -73, 547 )
+rotation = 1.57079
+
+[node name="Flag" parent="." index="8"]
+position = Vector2( 328, -35 )
+
+[node name="PlayerRoot" parent="." index="9"]
+position = Vector2( -24, 32 )
