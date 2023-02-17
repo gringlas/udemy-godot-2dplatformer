@@ -1,14 +1,32 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://resources/theme.tres" type="Theme" id=1]
-[ext_resource path="res://AnimatedButton.gd" type="Script" id=2]
-[ext_resource path="res://resources/font.tres" type="DynamicFont" id=3]
 [ext_resource path="res://scenes/UI/AnimatedButton.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/UI/GameComplete.gd" type="Script" id=5]
 [ext_resource path="res://scenes/UI/MenuBackground.tscn" type="PackedScene" id=6]
 
+[sub_resource type="Animation" id=1]
+resource_name = "default"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("MarginContainer/PanelContainer:rect_scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 1.1, 1.1 ), Vector2( 0.9, 0.9 ), Vector2( 1, 1 ) ]
+}
+
 [node name="GameComplete" type="CanvasLayer"]
 script = ExtResource( 5 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "default"
+anims/default = SubResource( 1 )
 
 [node name="MenuBackground" parent="." instance=ExtResource( 6 )]
 
@@ -53,16 +71,9 @@ text = "You did it!
 GAME COMPLETE"
 align = 1
 
-[node name="QuitButton" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource( 4 )]
+[node name="QuitButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource( 4 )]
 margin_left = 8.0
 margin_top = 27.0
 margin_right = 104.0
 margin_bottom = 51.0
-rect_min_size = Vector2( 96, 24 )
-rect_pivot_offset = Vector2( 48, 12 )
-size_flags_horizontal = 4
-size_flags_vertical = 0
-theme = ExtResource( 1 )
-custom_fonts/font = ExtResource( 3 )
 text = "BACK TO MENU"
-script = ExtResource( 2 )
