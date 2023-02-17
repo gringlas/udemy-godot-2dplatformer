@@ -17,8 +17,8 @@ config/icon="res://icon.png"
 [autoload]
 
 LevelManager="*res://scenes/LevelManager.tscn"
-Helpers="*res://scripts/helpers.gd"
 ScreenTransitionManager="*res://scenes/ScreenTransitionManager.tscn"
+Helpers="*res://scripts/Helpers.gd"
 
 [display]
 

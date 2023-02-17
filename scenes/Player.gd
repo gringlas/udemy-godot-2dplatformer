@@ -7,6 +7,7 @@ signal died
 
 enum State { NORMAL, DASHING }
 export (int, LAYERS_2D_PHYSICS) var dashHazardMask
+export (bool) var isOneScreen = false
 
 var gravity = 1000
 var velocity = Vector2.ZERO
@@ -29,6 +30,7 @@ func _ready() -> void:
 	defaultHazardMask = $HazardArea.collision_mask
 
 func _process(delta) -> void:
+	one_screen()
 	if velocity.y > 3000.0:
 		kill()
 	
@@ -39,6 +41,15 @@ func _process(delta) -> void:
 			process_dashing(delta)
 	isStateNew = false
 	
+	
+func one_screen() -> void:
+	if isOneScreen:
+		if position.x > get_viewport_rect().size.x:
+			position.x = 0
+		if position.x < 0:
+			position.x = get_viewport_rect().size.x
+		
+		
 func change_state(newState) -> void:
 	currentState = newState
 	isStateNew = true
