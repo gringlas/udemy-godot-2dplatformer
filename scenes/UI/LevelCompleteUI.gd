@@ -1,7 +1,7 @@
 extends CanvasLayer
 
 func _ready() -> void:
-	$PanelContainer/MarginContainer/VBoxContainer/Button.connect("pressed", self, "on_button_pressed")
+	$MarginContainer/PanelContainer/MarginContainer/VBoxContainer/NextLevelButton.connect("pressed", self, "on_button_pressed")
 
 func _process(delta: float) -> void:
 	if (Input.is_action_just_pressed("jump")):
