@@ -24,8 +24,8 @@ MouseCursor="*res://scenes/UI/MouseCursor.tscn"
 
 [display]
 
-window/size/width=320
-window/size/height=240
+window/size/width=480
+window/size/height=360
 window/size/test_width=1024
 window/size/test_height=768
 window/stretch/mode="viewport"
