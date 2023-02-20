@@ -5,9 +5,6 @@
 [ext_resource path="res://scenes/Enemy.gd" type="Script" id=3]
 [ext_resource path="res://assets/enemy/character_0017.png" type="Texture" id=4]
 
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 7, 4 )
-
 [sub_resource type="Animation" id=7]
 resource_name = "run"
 length = 0.1
@@ -100,6 +97,12 @@ tracks/3/keys = {
 "values": [ true ]
 }
 
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 7, 4 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 7, 4 )
+
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
 "frames": [ ExtResource( 1 ), ExtResource( 2 ) ],
@@ -113,9 +116,6 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 7, 4 )
-
 [sub_resource type="CircleShape2D" id=4]
 radius = 6.0
 
@@ -126,23 +126,11 @@ collision_layer = 0
 script = ExtResource( 3 )
 isSpawning = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, -4 )
-shape = SubResource( 2 )
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "spwan"
 anims/run = SubResource( 7 )
 anims/spwan = SubResource( 6 )
 next/spwan = "run"
-
-[node name="Visuals" type="Node2D" parent="."]
-
-[node name="AnimatedSprite" type="AnimatedSprite" parent="Visuals"]
-frames = SubResource( 1 )
-animation = "spawn"
-playing = true
-offset = Vector2( 0, -12 )
 
 [node name="GoalDetector" type="Area2D" parent="."]
 position = Vector2( 0, -4 )
@@ -151,6 +139,18 @@ collision_mask = 131072
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GoalDetector"]
 shape = SubResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -4 )
+shape = SubResource( 2 )
+
+[node name="Visuals" type="Node2D" parent="."]
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Visuals"]
+frames = SubResource( 1 )
+animation = "spawn"
+playing = true
+offset = Vector2( 0, -12 )
 
 [node name="HazardArea" type="Area2D" parent="."]
 position = Vector2( 0, -7 )

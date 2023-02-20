@@ -81,36 +81,57 @@ script = ExtResource( 2 )
 dashHazardMask = 262144
 
 [node name="FootstepAudioPlayer" parent="." instance=ExtResource( 7 )]
+numberToPlay = 3
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="FootstepAudioPlayer"]
 stream = ExtResource( 8 )
+volume_db = -5.0
+bus = "Footsteps"
 
 [node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="FootstepAudioPlayer"]
 stream = ExtResource( 10 )
+volume_db = -5.0
+bus = "Footsteps"
 
 [node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="FootstepAudioPlayer"]
 stream = ExtResource( 9 )
+volume_db = -5.0
+bus = "Footsteps"
 
 [node name="AudioStreamPlayer4" type="AudioStreamPlayer" parent="FootstepAudioPlayer"]
 stream = ExtResource( 6 )
+volume_db = -5.0
+bus = "Footsteps"
 
 [node name="AudioStreamPlayer5" type="AudioStreamPlayer" parent="FootstepAudioPlayer"]
 stream = ExtResource( 11 )
+volume_db = -5.0
+bus = "Footsteps"
 
 [node name="AudioStreamPlayer6" type="AudioStreamPlayer" parent="FootstepAudioPlayer"]
 stream = ExtResource( 15 )
+volume_db = -5.0
+bus = "Footsteps"
 
 [node name="AudioStreamPlayer7" type="AudioStreamPlayer" parent="FootstepAudioPlayer"]
 stream = ExtResource( 14 )
+volume_db = -5.0
+bus = "Footsteps"
 
 [node name="AudioStreamPlayer8" type="AudioStreamPlayer" parent="FootstepAudioPlayer"]
 stream = ExtResource( 12 )
+volume_db = -5.0
+bus = "Footsteps"
 
 [node name="AudioStreamPlayer9" type="AudioStreamPlayer" parent="FootstepAudioPlayer"]
 stream = ExtResource( 13 )
+volume_db = -5.0
+bus = "Footsteps"
 
 [node name="AudioStreamPlayer10" type="AudioStreamPlayer" parent="FootstepAudioPlayer"]
 stream = ExtResource( 16 )
+volume_db = -5.0
+bus = "Footsteps"
 
 [node name="CoyoteTimer" type="Timer" parent="."]
 wait_time = 0.15
