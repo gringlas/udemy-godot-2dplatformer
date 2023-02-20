@@ -36,10 +36,10 @@ anchor_bottom = 1.0
 theme = ExtResource( 2 )
 
 [node name="PanelContainer" type="PanelContainer" parent="MarginContainer"]
-margin_left = 96.0
-margin_top = 70.0
-margin_right = 224.0
-margin_bottom = 170.0
+margin_left = 176.0
+margin_top = 130.0
+margin_right = 304.0
+margin_bottom = 230.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
