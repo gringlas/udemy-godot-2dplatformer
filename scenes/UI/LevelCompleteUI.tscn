@@ -32,10 +32,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="PanelContainer" type="PanelContainer" parent="MarginContainer"]
-margin_left = 92.0
-margin_top = 76.0
-margin_right = 228.0
-margin_bottom = 163.0
+margin_left = 172.0
+margin_top = 136.0
+margin_right = 308.0
+margin_bottom = 223.0
 rect_min_size = Vector2( 136, 0 )
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -90,8 +90,7 @@ rect_min_size = Vector2( 0, 12 )
 
 [node name="NextLevelButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource( 3 )]
 margin_top = 45.0
-margin_right = 112.0
 margin_bottom = 69.0
-rect_min_size = Vector2( 112, 24 )
+rect_rotation = 0.0
 size_flags_vertical = 4
 text = "NEXT LEVEL"

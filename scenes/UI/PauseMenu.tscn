@@ -38,10 +38,10 @@ custom_constants/margin_left = 8
 custom_constants/margin_bottom = 8
 
 [node name="PanelContainer" type="PanelContainer" parent="MarginContainer"]
-margin_left = 96.0
-margin_top = 62.0
-margin_right = 224.0
-margin_bottom = 177.0
+margin_left = 176.0
+margin_top = 122.0
+margin_right = 304.0
+margin_bottom = 237.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme = ExtResource( 1 )
@@ -69,22 +69,19 @@ text = "PAUSED"
 align = 1
 
 [node name="ResumeButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource( 2 )]
-margin_left = 8.0
 margin_top = 15.0
-margin_right = 104.0
 margin_bottom = 39.0
+rect_rotation = 0.0
 text = "RESUME"
 
 [node name="OptionsButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource( 2 )]
-margin_left = 8.0
 margin_top = 45.0
-margin_right = 104.0
 margin_bottom = 69.0
+rect_rotation = 0.0
 text = "OPTIONS"
 
 [node name="QuitButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource( 2 )]
-margin_left = 8.0
 margin_top = 75.0
-margin_right = 104.0
 margin_bottom = 99.0
+rect_rotation = 0.0
 text = "BACK TO MENU"

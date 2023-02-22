@@ -35,7 +35,8 @@ void fragment() {
 shader = SubResource( 3 )
 
 [node name="MouseCursor" type="CanvasLayer"]
-layer = 100
+pause_mode = 2
+layer = 50
 script = ExtResource( 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

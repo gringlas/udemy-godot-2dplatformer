@@ -1,8 +1,17 @@
-[gd_resource type="Theme" load_steps=8 format=2]
+[gd_resource type="Theme" load_steps=9 format=2]
 
 [ext_resource path="res://resources/font_outlined.tres" type="DynamicFont" id=1]
 [ext_resource path="res://assets/ui/tile_0009.png" type="Texture" id=2]
 [ext_resource path="res://assets/ui/tile_0029.png" type="Texture" id=3]
+
+[sub_resource type="StyleBoxTexture" id=5]
+texture = ExtResource( 3 )
+region_rect = Rect2( 0, 0, 18, 18 )
+margin_left = 5.0
+margin_right = 5.0
+margin_top = 12.9557
+margin_bottom = 11.6318
+modulate_color = Color( 0.333333, 0.333333, 0.333333, 1 )
 
 [sub_resource type="StyleBoxTexture" id=1]
 texture = ExtResource( 2 )
@@ -44,7 +53,7 @@ Button/colors/font_color_focus = Color( 0.94, 0.94, 0.94, 1 )
 Button/colors/font_color_hover = Color( 0.94, 0.94, 0.94, 1 )
 Button/colors/font_color_pressed = Color( 0.435294, 0.243137, 0.262745, 1 )
 Button/constants/hseparation = 2
-Button/styles/disabled = null
+Button/styles/disabled = SubResource( 5 )
 Button/styles/focus = null
 Button/styles/hover = SubResource( 1 )
 Button/styles/normal = SubResource( 2 )

@@ -10,3 +10,5 @@ func on_area_entered(_area2d):
 	print("Won")
 	emit_signal("player_won")
 	$Particles2D.emitting = true
+	$AudioStreamPlayer.play()
+	$ConfettiSoundPlayer.play()

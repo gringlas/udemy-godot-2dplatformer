@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://MainMenu.gd" type="Script" id=1]
 [ext_resource path="res://resources/theme.tres" type="Theme" id=2]
 [ext_resource path="res://scenes/UI/AnimatedButton.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/UI/MenuBackground.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/MusicPlayer.tscn" type="PackedScene" id=5]
 
 [sub_resource type="Animation" id=1]
 resource_name = "default"
@@ -60,20 +61,20 @@ rect_min_size = Vector2( 112, 0 )
 custom_constants/separation = 6
 
 [node name="PlayButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource( 3 )]
-margin_left = 8.0
-margin_right = 104.0
+rect_rotation = 0.0
 text = "SPIEL STARTEN"
 
 [node name="OptionsButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource( 3 )]
-margin_left = 8.0
 margin_top = 30.0
-margin_right = 104.0
 margin_bottom = 54.0
+rect_rotation = 0.0
 text = "OPTIONEN"
 
 [node name="QuitButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource( 3 )]
-margin_left = 8.0
 margin_top = 60.0
-margin_right = 104.0
 margin_bottom = 84.0
+rect_rotation = 0.0
 text = "BEENDEN"
+
+[node name="MusicPlayer" parent="." instance=ExtResource( 5 )]
+title = "TitleMusic"

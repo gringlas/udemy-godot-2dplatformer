@@ -15,7 +15,7 @@ var maxHorizontalSpeed = 140
 var maxDashSpeed = 500
 var minDashSpeed = 200
 var horizontalAcceleration = 1500
-var maxJump = 300
+var maxJump = 400
 var jumpTerminationMultiplier = 4
 var hasDoubleJump = false
 var hasDash = false
@@ -107,6 +107,7 @@ func process_normal(delta) -> void:
 
 func process_dashing(delta) -> void:
 	if (isStateNew):
+		$DashAudioPlayer.play()
 		$DashParticles.emitting = true;
 		$DashArea/CollisionShape2D.disabled = false
 		$HazardArea.collision_mask = dashHazardMask
