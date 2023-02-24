@@ -30,6 +30,7 @@ func coin_collected():
 	print(str(collectedCoins) + "/" + str(totalCoins))
 	emit_signal("coin_total_changed", totalCoins, collectedCoins)
 
+
 func coin_total_changed(newTotal):
 	totalCoins = newTotal
 	emit_signal("coin_total_changed", totalCoins, collectedCoins)

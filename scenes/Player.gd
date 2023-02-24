@@ -23,6 +23,7 @@ var currentState = State.NORMAL
 var isStateNew = true
 var defaultHazardMask = 0
 var isDying = false
+var lives = 3
 
 func _ready() -> void:
 	$HazardArea.connect("area_entered", self, "on_hazard_area_entered")
@@ -154,8 +155,14 @@ func update_animation():
 func kill():
 	if (isDying):
 		return
-		
+	
 	isDying = true
+	
+	$"/root/GameManager".alter_player_lives(-1)
+	if $"/root/GameManager".playerLives == 0:
+		$"/root/ScreenTransitionManager".transition_to_game_over()
+		
+		
 	var playerDeathInstance = playerDeathScene.instance()
 	playerDeathInstance.velocity = velocity
 	get_parent().add_child_below_node(self, playerDeathInstance)

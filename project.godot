@@ -23,6 +23,7 @@ ScreenTransitionManager="*res://scenes/ScreenTransitionManager.tscn"
 Helpers="*res://scripts/Helpers.gd"
 ShaderLayer="*res://scenes/ShaderLayer.tscn"
 MouseCursor="*res://scenes/UI/MouseCursor.tscn"
+GameManager="*res://scenes/GameManager.tscn"
 
 [display]
 

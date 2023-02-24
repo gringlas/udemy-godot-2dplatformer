@@ -17,3 +17,6 @@ func transition_to_menu():
 
 func transition_to_game_complete():
 	transition_to_scene("res://scenes/UI/GameComplete.tscn")
+	
+func transition_to_game_over():
+	transition_to_scene("res://scenes/GameOver.tscn")

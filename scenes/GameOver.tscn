@@ -1,0 +1,82 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://resources/decorative_tileset.tres" type="TileSet" id=1]
+[ext_resource path="res://scenes/Clouds.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/GameCamera.tscn" type="PackedScene" id=3]
+[ext_resource path="res://resources/tileset.tres" type="TileSet" id=4]
+[ext_resource path="res://resources/theme.tres" type="Theme" id=5]
+[ext_resource path="res://scenes/UI/AnimatedButton.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/GameOver.gd" type="Script" id=7]
+
+[node name="GameOver" type="CanvasLayer"]
+script = ExtResource( 7 )
+
+[node name="GameOverBackground" type="Node2D" parent="."]
+
+[node name="GameCamera" parent="GameOverBackground" instance=ExtResource( 3 )]
+position = Vector2( 1, 1 )
+
+[node name="Clouds" parent="GameOverBackground/GameCamera" instance=ExtResource( 2 )]
+
+[node name="TileMap" type="TileMap" parent="GameOverBackground"]
+tile_set = ExtResource( 4 )
+cell_size = Vector2( 18, 18 )
+show_collision = true
+format = 1
+tile_data = PoolIntArray( 65540, 0, 0, 65541, 0, 0, 65542, 0, 0, 65544, 0, 0, 65545, 0, 0, 65546, 0, 0, 65548, 0, 0, 65552, 0, 0, 65554, 0, 0, 65555, 0, 0, 65556, 0, 0, 131076, 0, 0, 131080, 0, 0, 131082, 0, 0, 131084, 0, 0, 131085, 0, 0, 131087, 0, 0, 131088, 0, 0, 131090, 0, 0, 196612, 0, 0, 196614, 0, 0, 196616, 0, 0, 196617, 0, 0, 196618, 0, 0, 196620, 0, 0, 196622, 0, 0, 196624, 0, 0, 196626, 0, 0, 196627, 0, 0, 262148, 0, 0, 262150, 0, 0, 262152, 0, 0, 262154, 0, 0, 262156, 0, 0, 262160, 0, 0, 262162, 0, 0, 327684, 0, 0, 327685, 0, 0, 327686, 0, 0, 327688, 0, 0, 327690, 0, 0, 327692, 0, 0, 327696, 0, 0, 327698, 0, 0, 327699, 0, 0, 327700, 0, 0, 917509, 0, 0, 917510, 0, 0, 917511, 0, 0, 917513, 0, 0, 917515, 0, 0, 917517, 0, 0, 917518, 0, 0, 917519, 0, 0, 917521, 0, 0, 917522, 0, 0, 917523, 0, 0, 983045, 0, 0, 983047, 0, 0, 983049, 0, 0, 983051, 0, 0, 983053, 0, 0, 983057, 0, 0, 983059, 0, 0, 1048581, 0, 0, 1048583, 0, 0, 1048585, 0, 0, 1048587, 0, 0, 1048589, 0, 0, 1048590, 0, 0, 1048593, 0, 0, 1048594, 0, 0, 1114117, 0, 0, 1114119, 0, 0, 1114122, 0, 0, 1114125, 0, 0, 1114129, 0, 0, 1114131, 0, 0, 1179653, 0, 0, 1179654, 0, 0, 1179655, 0, 0, 1179658, 0, 0, 1179661, 0, 0, 1179662, 0, 0, 1179663, 0, 0, 1179665, 0, 0, 1179667, 0, 0, 2359363, 0, 0 )
+
+[node name="DecorativeTileMap" type="TileMap" parent="GameOverBackground"]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 18, 18 )
+show_collision = true
+format = 1
+tile_data = PoolIntArray( 2359363, 0, 0 )
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 5 )
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer"]
+margin_left = 176.0
+margin_top = 125.0
+margin_right = 304.0
+margin_bottom = 234.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer"]
+margin_right = 128.0
+margin_bottom = 109.0
+custom_constants/margin_right = 8
+custom_constants/margin_top = 8
+custom_constants/margin_left = 8
+custom_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer"]
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 120.0
+margin_bottom = 101.0
+rect_min_size = Vector2( 112, 0 )
+custom_constants/separation = 6
+
+[node name="Label" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+margin_right = 112.0
+margin_bottom = 33.0
+text = "All you're lives are lost, but don't fear and try again"
+autowrap = true
+
+[node name="PlayButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource( 6 )]
+margin_left = 8.0
+margin_top = 39.0
+margin_right = 104.0
+margin_bottom = 63.0
+text = "RESTART"
+
+[node name="MainMenuButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource( 6 )]
+margin_left = 8.0
+margin_top = 69.0
+margin_right = 104.0
+margin_bottom = 93.0
+text = "BACK TO MENU"

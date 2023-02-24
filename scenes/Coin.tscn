@@ -24,7 +24,6 @@ animations = [ {
 
 [sub_resource type="Animation" id=3]
 resource_name = "idle"
-loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("AnimatedSprite:position")
 tracks/0/interp = 2
@@ -92,7 +91,6 @@ shape = SubResource( 2 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
-frame = 1
 playing = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
